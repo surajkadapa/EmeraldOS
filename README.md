@@ -1,3 +1,3 @@
 # EmeraldOS
-![Alt text](https://minecraft.fandom.com/wiki/Emerald "a title")
+![alt text](http://url/to/img.png)
 A simple operating system, implementing some basic concepts.
