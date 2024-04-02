@@ -1,0 +1,89 @@
+Open Watcom Linker Version 2.0 beta Apr  2 2024 08:27:08 (32-bit)
+Copyright (c) 2002-2024 The Open Watcom Contributors. All Rights Reserved.
+Portions Copyright (c) 1985-2002 Sybase, Inc. All Rights Reserved.
+Created on:       24/04/02 23:48:57
+Executable Image: build/kernel.bin
+creating a RAW Binary Image executable
+
+
+                        +------------+
+                        |   Groups   |
+                        +------------+
+
+Group                           Address              Size
+=====                           =======              ====
+
+DGROUP                          0000004e             0000000e
+
+
+
+                        +--------------+
+                        |   Segments   |
+                        +--------------+
+
+Segment                Class          Group          Address         Size
+=======                =====          =====          =======         ====
+
+_ENTRY                 CODE           AUTO           00000000        00000010
+_TEXT                  CODE           AUTO           00000010        0000003d
+CONST                  DATA           DGROUP         0000004e        0000000e
+CONST2                 DATA           DGROUP         0000005c        00000000
+_DATA                  DATA           DGROUP         0000005c        00000000
+
+
+                        +----------------+
+                        |   Memory Map   |
+                        +----------------+
+
+* = unreferenced symbol
++ = symbol only referenced locally
+
+Address        Symbol
+=======        ======
+
+Module: build/kernel/asm/main.obj(src/kernel/main.asm)
+00000000       entry
+Module: build/kernel/asm/print.obj(src/kernel/print.asm)
+00000010       _x86_Video_WriteCharTeletype
+Module: build/kernel/c/main.obj(/home/suraj/Documents/projects/EmeraldOS/src/kernel/main.c)
+00000023       _cstart_
+Module: build/kernel/c/stdio.obj(/home/suraj/Documents/projects/EmeraldOS/src/kernel/stdio.c)
+00000029+      putc_
+0000003c       puts_
+
+
+                        +---------------------+
+                        |   Module Segments   |
+                        +---------------------+
+
+! = 32-bit segment
+c = initialized communal data
+
+Module          Segment               Class           Address         Size
+======          =======               =====           =======         ====
+
+src/kernel/main.asm
+                _ENTRY                CODE           00000000         00000010
+src/kernel/print.asm
+                _TEXT                 CODE           00000010         00000013
+/home/suraj/Documents/projects/EmeraldOS/src/kernel/main.c
+                _TEXT                 CODE           00000023         00000006
+                CONST                 DATA           0000004e         0000000e
+                CONST2                DATA           0000005c         00000000
+                _DATA                 DATA           0000005c         00000000
+/home/suraj/Documents/projects/EmeraldOS/src/kernel/stdio.c
+                _TEXT                 CODE           00000029         00000024
+                CONST                 DATA           0000005c         00000000
+                CONST2                DATA           0000005c         00000000
+                _DATA                 DATA           0000005c         00000000
+Warning! W1014: stack segment not found
+
+
+                        +-----------------------+
+                        |   Linker Statistics   |
+                        +-----------------------+
+
+Stack size:  0200 (512.)
+Memory size:  005c (92.)
+Entry point address: 00000000
+Link time: 00:00.00
